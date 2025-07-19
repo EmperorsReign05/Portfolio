@@ -24,7 +24,7 @@ export default function Hero() {
         // We use the mono font here for a nice contrast with the heading
         style={{ fontFamily: "var(--font-geist-mono)" }}
       >
-        Hey, I'm
+        Hey, I&apos;m
       </motion.p>
       <motion.h1
         initial={{ y: 40, opacity: 0 }}

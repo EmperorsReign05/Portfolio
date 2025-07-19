@@ -3,11 +3,12 @@
 import { client } from "@/../sanity/lib/client"; // Adjust import path
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import type { PortableTextBlock } from 'sanity';
 
 interface Post {
   title: string;
   mainImageUrl: string; // This now matches the name from your GROQ query
-  body: any[];
+   body: PortableTextBlock[];
 }
 
 async function getPost(slug: string) {
