@@ -28,13 +28,15 @@ async function getPost(slug: string): Promise<Post | null> {
   return data ?? null;
 }
 
-// ✅ Page component with inline typing to avoid Vercel TS error
+// ✅ Page component - Updated for Next.js 15
 export default async function Page({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await getPost(params.slug);
+  // Await the params since it's now a Promise in Next.js 15
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
     notFound(); // Triggers Next.js 404 page
