@@ -5,6 +5,12 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import type { PortableTextBlock } from 'sanity';
 
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
 interface Post {
   title: string;
   mainImageUrl: string; // This now matches the name from your GROQ query
@@ -21,7 +27,7 @@ async function getPost(slug: string) {
   return data;
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({ params }: Props) {
   const post: Post = await getPost(params.slug);
 
   return (
