@@ -27,7 +27,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-muted-foreground max-w-xl mx-auto mb-8"
         >
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.
+          I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.
         </motion.p>
 
         {/* Social Links */}
