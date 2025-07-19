@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Github, Linkedin, Mail, X } from "lucide-react";
 import Link from "next/link";
+import ContactForm from './ContactForm';
 
 export default function Contact() {
   return (
@@ -37,29 +38,31 @@ export default function Contact() {
           viewport={{ once: true }}
           className="flex justify-center gap-4 mb-12"
         >
-          <Button asChild variant="outline" size="icon" aria-label="Email">
+          <Button asChild variant="outline" size="icon" aria-label="Email" className="bg-primary text-primary-foreground">
             <Link href="mailto:almanfarooqui5@gmail.com"> {/* TODO: Add your email */}
               <Mail />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="icon" aria-label="LinkedIn">
+          <Button asChild variant="outline" size="icon" aria-label="LinkedIn" className="bg-primary text-primary-foreground">
             <Link href="https://www.linkedin.com/in/mohammad-alman-farooqui-10a2b6256/" target="_blank"> {/* TODO: Add your LinkedIn URL */}
               <Linkedin />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="icon" aria-label="GitHub">
+          <Button asChild variant="outline" size="icon" aria-label="GitHub" className="bg-primary text-primary-foreground">
             <Link href="https://github.com/EmperorsReign05" target="_blank"> {/* TODO: Add your GitHub URL */}
               <Github />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="icon" aria-label="X">
+          <Button asChild variant="outline" size="icon" aria-label="X" className="bg-primary text-primary-foreground">
             <Link href="https://x.com/almanfarooqui_1" target="_blank"> {/* TODO: Add your X URL */}
               <X />
             </Link>
           </Button>
         </motion.div>
 
-        {/* Optional: Add a simple contact form here if needed in the future */}
+         <div>
+            <ContactForm />
+          </div>
         
       </div>
     </section>
