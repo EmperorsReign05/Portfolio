@@ -1,16 +1,7 @@
-// src/app/blog/[slug]/page.tsx
-
 import { client } from "@/../sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import type { PortableTextBlock } from 'sanity';
-
-// This Props type is correct and we will keep it
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+import type { PortableTextBlock } from "sanity";
 
 interface Post {
   title: string;
@@ -18,12 +9,17 @@ interface Post {
   body: PortableTextBlock[];
 }
 
-// This new function tells Next.js which pages to build
+// The `params` type for a dynamic route in Next.js app router
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
 export async function generateStaticParams() {
   const query = `*[_type == "post"]{ "slug": slug.current }`;
   const posts = await client.fetch(query);
 
-  // We return an array of objects, where each object has a 'slug' property
   return posts.map((post: { slug: string }) => ({
     slug: post.slug,
   }));
@@ -35,14 +31,12 @@ async function getPost(slug: string) {
     "mainImageUrl": mainImage.asset->url,
     body
   }`;
-  const data = await client.fetch(query, { slug });
-  return data;
+  return await client.fetch(query, { slug });
 }
 
-export default async function PostPage({ params }: Props) {
-  const post: Post = await getPost(params.slug);
+export default async function PostPage({ params }: PageProps) {
+  const post: Post | null = await getPost(params.slug);
 
-  // It's good practice to handle the case where a post might not be found
   if (!post) {
     return <div>Post not found.</div>;
   }
@@ -52,12 +46,12 @@ export default async function PostPage({ params }: Props) {
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
       
       {post.mainImageUrl && (
-        <Image 
-          src={post.mainImageUrl} 
-          alt={post.title} 
-          width={800} 
-          height={400} 
-          className="my-8 rounded-lg object-cover" 
+        <Image
+          src={post.mainImageUrl}
+          alt={post.title}
+          width={800}
+          height={400}
+          className="my-8 rounded-lg object-cover"
         />
       )}
       
