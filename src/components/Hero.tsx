@@ -9,7 +9,6 @@ export default function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen flex-col items-center justify-center gap-6 overflow-hidden px-4 text-center md:gap-8">
       <RetroShape />
-      {/* Background Accent */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 0.15, scale: 1.2 }}
@@ -21,7 +20,6 @@ export default function Hero() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
         className="text-2xl "
-        // We use the mono font here for a nice contrast with the heading
         style={{ fontFamily: "var(--font-geist-mono)" }}
       >
         Hey, I&apos;m
@@ -56,8 +54,8 @@ export default function Hero() {
         </Button>
         <Button asChild variant="outline" size="lg" className="bg-yellow-300 text-black transition-all hover:-translate-x-1 hover:-translate-y-1">
     <a 
-      href="/resume.pdf" // This points to the file in your /public folder
-      download="Mohammad_Alman_Resume.pdf" // This is the filename the user will see
+      href="/resume.pdf" 
+      download="Mohammad_Alman_Resume.pdf" 
     >
       <Download className="mr-2 h-4 w-4" />
       Download Resume

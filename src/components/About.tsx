@@ -1,4 +1,4 @@
-// src/components/About.tsx
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -18,10 +18,8 @@ export default function About() {
           About Me
         </motion.h2>
 
-        {/* 3. Added mt-16 for spacing below the "About Me" heading */}
         <div className="grid md:grid-cols-2 gap-12 items-center text-left mt-16">
           
-          {/* Column 1: Your Ghibli Picture */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -34,14 +32,14 @@ export default function About() {
               alt="Ghibli"
               width={300}
               height={300}
-              // 1. Added object-cover to force a circular shape
+             
               className="rounded-full border-4 border-white shadow-lg object-cover" 
             />
           </motion.div>
 
-          {/* Column 2: Your Updated Text Content */}
+        
           <div className="bg-card p-6 md:p-8 rounded-lg border space-y-6">
-            {/* 2. "My Journey" heading is removed, paragraph is kept */}
+            
             <p className="text-muted-foreground leading-relaxed">
               My journey in tech is driven by a deep-seated passion for building things. I thrive on diving into new technologies, not just for the sake of learning, but to see how I can combine them to create functional, intuitive, and delightful user experiences. From a simple idea to a deployed project, the act of creation is what truly motivates me.
             </p>

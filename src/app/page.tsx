@@ -1,5 +1,5 @@
-// src/page.tsx
-"use client"; // Add this line at the top
+
+"use client";
 
 import Navbar from "@/components/NavBar";
 import Hero from "@/components/Hero";

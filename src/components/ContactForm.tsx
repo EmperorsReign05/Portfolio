@@ -1,4 +1,3 @@
-// src/components/ContactForm.tsx
 "use client";
 
 import { useState } from 'react';
@@ -7,7 +6,6 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 
 export default function ContactForm() {
-  // 1. Create state for each input field
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
@@ -18,7 +16,6 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('Sending...');
 
-    // The data now comes directly from our state
     const data = {
       name,
       email,
@@ -40,7 +37,6 @@ export default function ContactForm() {
       const result = await response.json();
       if (result.success) {
         setStatus('Message sent successfully!');
-        // 4. Reset the form by clearing the state
         setName('');
         setEmail('');
         setSubject('');
@@ -57,7 +53,6 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {/* 2. Each input's value and onChange are now controlled by React state */}
       <Input
         type="text"
         name="name"

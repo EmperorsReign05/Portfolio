@@ -8,42 +8,48 @@ interface Post {
   title: string;
   mainImageUrl?: string;
   body: PortableTextBlock[];
+  categories: { title: string }[];
 }
 
-// ✅ Generate static paths (dynamic routes)
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const query = `*[_type == "post"]{ "slug": slug.current }`;
   const posts: { slug: string }[] = await client.fetch(query);
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-// ✅ Fetch individual post
 async function getPost(slug: string): Promise<Post | null> {
   const query = `*[_type == "post" && slug.current == $slug][0]{
     title,
     "mainImageUrl": mainImage.asset->url,
-    body
+    body,
+    "categories": categories[]->{title}
   }`;
   const data = await client.fetch(query, { slug });
   return data ?? null;
 }
 
-// ✅ Page component - Updated for Next.js 15
 export default async function Page({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  // Await the params since it's now a Promise in Next.js 15
+  
   const { slug } = await params;
   const post = await getPost(slug);
 
   if (!post) {
-    notFound(); // Triggers Next.js 404 page
+    notFound(); 
   }
 
   return (
     <article className="max-w-3xl mx-auto py-20 px-4 font-sans">
+    <div className="mb-4">
+        {post.categories?.map((category) => (
+          <span key={category.title} className="text-primary font-semibold text-sm mr-2">
+            {category.title}
+          </span>
+        ))}
+      </div>
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
 
       {post.mainImageUrl && (

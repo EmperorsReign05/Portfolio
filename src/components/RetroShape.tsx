@@ -1,4 +1,3 @@
-// src/components/RetroShape.tsx
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -8,7 +7,6 @@ import * as THREE from "three";
 function Shape() {
   const meshRef = useRef<THREE.Mesh>(null!);
   
-  // This hook runs on every frame, creating the animation
   useFrame((state, delta) => {
     meshRef.current.rotation.x += delta * 0.1;
     meshRef.current.rotation.y += delta * 0.1;
