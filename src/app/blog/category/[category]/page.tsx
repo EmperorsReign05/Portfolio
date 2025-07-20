@@ -6,7 +6,8 @@ interface Post {
   title: string;
   slug: { current: string };
 }
-type Props = { params: { category: string }; };
+
+type Props = { params: Promise<{ category: string }>; };
 
 async function getPostsByCategory(category: string) {
   const query = `*[_type == "post" && $category in categories[]->title] {
@@ -19,12 +20,14 @@ async function getPostsByCategory(category: string) {
 }
 
 export default async function CategoryPage({ params }: Props) {
-  const posts: Post[] = await getPostsByCategory(decodeURIComponent(params.category));
+  
+  const { category } = await params;
+  const posts: Post[] = await getPostsByCategory(decodeURIComponent(category));
 
   return (
     <main className="max-w-4xl mx-auto py-20 px-4">
       <h1 className="text-4xl font-bold mb-8" style={{fontFamily: "var(--font-press-start-2p)"}}>
-        Category: {decodeURIComponent(params.category)}
+        Category: {decodeURIComponent(category)}
       </h1>
       <div className="space-y-6">
         {posts.map((post) => (
