@@ -1,4 +1,3 @@
-// src/components/Contact.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -30,7 +29,6 @@ export default function Contact() {
           I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.
         </motion.p>
 
-        {/* Social Links */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -39,22 +37,22 @@ export default function Contact() {
           className="flex justify-center gap-4 mb-12"
         >
           <Button asChild variant="outline" size="icon" aria-label="Email" className="bg-primary text-primary-foreground">
-            <Link href="mailto:almanfarooqui5@gmail.com"> {/* TODO: Add your email */}
+            <Link href="mailto:almanfarooqui5@gmail.com"> 
               <Mail />
             </Link>
           </Button>
           <Button asChild variant="outline" size="icon" aria-label="LinkedIn" className="bg-primary text-primary-foreground">
-            <Link href="https://www.linkedin.com/in/mohammad-alman-farooqui-10a2b6256/" target="_blank"> {/* TODO: Add your LinkedIn URL */}
+            <Link href="https://www.linkedin.com/in/mohammad-alman-farooqui-10a2b6256/" target="_blank">
               <Linkedin />
             </Link>
           </Button>
           <Button asChild variant="outline" size="icon" aria-label="GitHub" className="bg-primary text-primary-foreground">
-            <Link href="https://github.com/EmperorsReign05" target="_blank"> {/* TODO: Add your GitHub URL */}
+            <Link href="https://github.com/EmperorsReign05" target="_blank">
               <Github />
             </Link>
           </Button>
           <Button asChild variant="outline" size="icon" aria-label="X" className="bg-primary text-primary-foreground">
-            <Link href="https://x.com/almanfarooqui_1" target="_blank"> {/* TODO: Add your X URL */}
+            <Link href="https://x.com/almanfarooqui_1" target="_blank">
               <X />
             </Link>
           </Button>

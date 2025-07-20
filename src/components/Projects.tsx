@@ -1,26 +1,25 @@
-// src/components/Projects.tsx
 "use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
 import { X } from "lucide-react";
-import Image from "next/image"; // Import the Next.js Image component
+import Image from "next/image";
 
 const projects = [
   {
     title: "PolicyGPT",
     shortDescription: "An AI-powered system that uses RAG to analyze complex documents like insurance policies. It answers natural language queries by providing structured, auditable decisions with justifications that directly cite the specific source clauses.",
     tags: ["Python", "LangChain", "FAISS", "Gemini API"],
-    status: "in-progress", // Special status for the new project
+    status: "in-progress",
     caseStudy: {
       challenge: "To create an intelligent system that can instantly and accurately answer complex, natural language questions about dense, unstructured insurance policy documents. The goal was to eliminate slow manual review, ensure decisions are auditable, and provide justifications grounded in the source text.",
       solution: "Engineered an AI-powered system using a RAG architecture. The solution first ingests and indexes multiple policy documents into a searchable vector knowledge base. When a user asks a question, the system retrieves the most relevant clauses using semantic search and feeds them to a LLM, which then synthesizes an evidence-based decision and generates a structured JSON response with direct citations.",
       technologies: "Python, LangChain, Gemini, Sentence-Transformers, FAISS Vector Store, PyMuPDF"
     },
-    imageUrl: null, // Replace with actual image path
-    liveUrl: null, // Link to the site itself
-    githubUrl: null // Replace with repo link
+    imageUrl: null,
+    liveUrl: null, 
+    githubUrl: null
   },
   {
     title: "Jolly LLM",
@@ -32,7 +31,7 @@ const projects = [
       solution: "I developed a full-stack application where the front-end (built with React and Vite) sends a user's prompt to a Node.js/Express backend. This backend then securely calls the Groq API with LLaMA 3 to generate and return the opposing legal viewpoints.",
       technologies: "Vite, React, Node.js, Express.js, Groq API (LLaMA 3), Tailwind CSS."
     },
-    imageUrl: "/jolly-llm.jpeg", // Replace with your actual image path
+    imageUrl: "/jolly-llm.jpeg", 
     liveUrl: "https://jolly-llm-pixel.netlify.app",
     githubUrl: "https://github.com/EmperorsReign05/jolly-llm"
   },
@@ -94,7 +93,6 @@ export default function Projects() {
               className="bg-card p-6 rounded-lg border flex flex-col relative transition-all hover:shadow-retro"
               onClick={() => setSelectedProject(project)}
             >
-              {/* "In Progress" Badge */}
               {project.status === 'in-progress' && (
                 <div className="absolute top-3 right-3 bg-yellow-400/20 text-yellow-500 text-xs font-bold px-2 py-1 rounded-full">
                   In Progress
@@ -120,7 +118,6 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Modal for Case Study */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -137,12 +134,11 @@ export default function Projects() {
               className="bg-card border rounded-lg p-6 md:p-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto relative text-left font-sans" // Using font-sans for readability
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
+             
               <div className="mb-6">
                 <h2 className="text-2xl md:text-3xl font-bold">{selectedProject.title}</h2>
               </div>
 
-              {/* Links */}
               <div className="flex flex-wrap gap-3 mb-6">
                 {selectedProject.liveUrl && (
                   <Button asChild><a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">View Live Demo</a></Button>
@@ -152,14 +148,12 @@ export default function Projects() {
                 )}
               </div>
               
-              {/* Image */}
               <div className="mb-6">
                 {selectedProject.imageUrl && (
   <Image src={selectedProject.imageUrl} alt={`${selectedProject.title} screenshot`} width={1280} height={720} className="rounded-lg border" />
 )}
               </div>
 
-              {/* Case Study Details */}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold mb-2">The Challenge</h3>
@@ -175,7 +169,6 @@ export default function Projects() {
                 </div>
               </div>
               
-              {/* Close Button */}
               <Button
                 variant="ghost"
                 size="icon"

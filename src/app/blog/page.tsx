@@ -1,24 +1,21 @@
 // src/app/blog/page.tsx
 
 import Link from "next/link";
-import { client } from "@/../sanity/lib/client"; // Adjust import path if needed
+import { client } from "@/../sanity/lib/client";
 
-// Define the type for a Post
 interface Post {
   _id: string;
   title: string;
-  slug: {
-    current: string;
-  };
-  // Add other fields you want to display on the list page
+  slug: { current: string };
+  categories: { title: string }[]; 
 }
 
-// Create a function to fetch the data
 async function getPosts() {
   const query = `*[_type == "post"] | order(publishedAt desc) {
     _id,
     title,
-    slug
+    slug,
+    "categories": categories[]->{title}
   }`;
   const data = await client.fetch(query);
   return data;
@@ -34,11 +31,21 @@ export default async function BlogPage() {
       </h1>
       <div className="space-y-6">
         {posts.map((post) => (
-          <Link key={post._id} href={`/blog/${post.slug.current}`}>
-            <div className="p-4 rounded-lg border bg-card hover:bg-secondary transition-colors">
-              <h2 className="text-2xl font-semibold">{post.title}</h2>
+          <div key={post._id} className="p-6 rounded-lg border bg-card">
+            <Link href={`/blog/${post.slug.current}`}>
+              <h2 className="text-2xl font-semibold hover:text-primary transition-colors">{post.title}</h2>
+            </Link>
+          
+            <div className="flex flex-wrap gap-2 mt-4">
+              {post.categories?.map((category) => (
+                 <Link key={category.title} href={`/blog/category/${category.title}`}>
+      <span className="bg-secondary text-secondary-foreground text-xs font-medium px-2.5 py-0.5 rounded-full hover:bg-primary/20 transition-colors">
+        {category.title}
+      </span>
+    </Link>
+              ))}
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </main>

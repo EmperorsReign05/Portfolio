@@ -8,6 +8,7 @@ import Loader from "@/components/Loader";
 
 
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,17 +19,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Initialize the retro font
 const pressStart2P = Press_Start_2P({
   variable: "--font-press-start-2p",
-  weight: "400", // This font only has one weight
+  weight: "400", 
   subsets: ["latin"],
 });
-
-/*export const metadata: Metadata = {
-  title: "Mohammad Alman Farooqui | Portfolio", // It's a good time to update your title!
-  description: "Front-end Developer and CS Student",
-};*/
 
 export default function RootLayout({
   children,
@@ -38,10 +33,9 @@ export default function RootLayout({
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 2 seconds
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -61,6 +55,7 @@ export default function RootLayout({
             </>
           )}
         </AnimatePresence>
+       
       </body>
     </html>
   );

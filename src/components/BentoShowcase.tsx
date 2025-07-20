@@ -1,4 +1,3 @@
-// src/components/BentoShowcase.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -11,7 +10,6 @@ export default function BentoShowcase() {
     <section className="py-20 px-4 md:px-8">
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
         
-        {/* Large Item: Philosophy */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -27,8 +25,6 @@ export default function BentoShowcase() {
             intuitive and delightful to use. Design is problem-solving.
           </p>
         </motion.div>
-
-        {/* Small Item: Achievement */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -42,7 +38,6 @@ export default function BentoShowcase() {
           <p className="text-sm text-muted-foreground mt-1">Finalist</p>
         </motion.div>
 
-        {/* Small Item: Let's Connect */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -60,7 +55,6 @@ export default function BentoShowcase() {
            </Button>
         </motion.div>
         
-        {/* Large Item: Primary Skills */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}

@@ -1,11 +1,9 @@
-// src/components/Skills.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import MarioSkillBlock from "./MarioSkillBlock"; // Make sure this path is correct
+import MarioSkillBlock from "./MarioSkillBlock";
 import { Code, Database, Server, Wind, Palette, GitFork } from "lucide-react";
 
-// Define your skills with icons
 const skills = [
   { name: "React", icon: <Code size={40} /> },
   { name: "Node.js", icon: <Server size={40} /> },
@@ -38,7 +36,6 @@ export default function Skills() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
              >
-                {/* Ensure these two props are passed correctly */}
                 <MarioSkillBlock skillName={skill.name} icon={skill.icon} />
              </motion.div>
           ))}
