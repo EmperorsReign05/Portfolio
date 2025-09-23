@@ -1,1 +1,1 @@
-jus my portfolio website duh
+just my portfolio website 
