@@ -48,7 +48,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <ul className="md:hidden px-6 pb-4 space-y-2 text-sm font-medium bg-background border-t border-border">
+        <ul className="md:hidden px-6 pb-4 space-y-2 text-sm font-medium backdrop-blur-sm bg-white/80 dark:bg-black/80 border-t border-border">
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <Link

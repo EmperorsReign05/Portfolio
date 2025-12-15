@@ -43,6 +43,7 @@ export default async function Page({
 
   return (
     <article className="max-w-3xl mx-auto py-20 px-4 font-sans">
+      <div className="bg-card p-6 md:p-8 rounded-lg border">
     <div className="mb-4">
         {post.categories?.map((category) => (
           <span key={category.title} className="text-primary font-semibold text-sm mr-2">
@@ -65,6 +66,7 @@ export default async function Page({
 
       <div className="prose prose-lg dark:prose-invert max-w-none">
         <PortableText value={post.body} />
+      </div>
       </div>
     </article>
   );
