@@ -8,6 +8,20 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "CabMate",
+    shortDescription: "A full-stack ride-sharing platform designed to streamline cab coordination with structured matching and real deployments.",
+    tags: ["React", "FastAPI", "MongoDB", "Docker", "AWS EC2", "Nginx"],
+    status: "completed",
+    caseStudy: {
+      challenge: "Cab coordination on campus often happens through unstructured chats, leading to confusion, missed rides, and poor scalability. My initial attempt at solving this had major logic and architectural flaws, which made the system hard to extend and unreliable under real usage.",
+      solution: "Instead of patching the existing system, I rebuilt CabMate from the ground up. I redesigned the frontend using React for clarity and predictable user flows, rewrote backend APIs using FastAPI with cleaner separation of concerns, and restructured the database in MongoDB to support flexible ride and user relationships. I containerized the entire application with Docker and manually deployed it on AWS EC2 using Nginx as a reverse proxy to understand real-world infrastructure and deployment challenges. Once validated, I migrated parts of the system to managed platforms for better reliability and maintainability.",
+      technologies: "React, JavaScript, FastAPI (Python), MongoDB Atlas, Docker, AWS EC2, Nginx."
+    },
+    imageUrl: "/cabmate.png",
+    liveUrl: "https://cabmate.pages.dev",
+    githubUrl: "https://github.com/EmperorsReign05/CabMate"
+  },
+  {
     title: "PolicyLLM",
     shortDescription: "An AI-powered system that uses RAG to analyze complex documents like insurance policies. It answers natural language queries by providing structured, auditable decisions with justifications that directly cite the specific source clauses.",
     tags: ["Python", "LangChain", "FAISS", "Gemini API"],
@@ -19,9 +33,9 @@ const projects = [
     },
     imageUrl: null,
     liveUrl: null,
-    githubUrl: null
+    githubUrl: "https://github.com/EmperorsReign05/PolicyLLM"
   },
-  {
+  /*{
     title: "Jolly LLM",
     shortDescription: "A full-stack app to generate dual-sided legal arguments from AI models.",
     tags: ["React", "Node.js", "Vite", "Express.js", "Groq API"],
@@ -48,7 +62,22 @@ const projects = [
     imageUrl: "/news-lens.jpg",
     liveUrl: null,
     githubUrl: "https://github.com/EmperorsReign05/NewsLens"
+  },*/
+  {
+    title: "MindScribe",
+    shortDescription: "An AI-powered mental wellness companion built using Retrieval-Augmented Generation for grounded, context-aware conversations.",
+    tags: ["React", "TypeScript", "FastAPI", "LangChain", "FAISS", "Google Gemini"],
+    status: "completed",
+    caseStudy: {
+      challenge: "Most AI chatbots provide generic or hallucinated responses, which is especially risky in mental wellness contexts. I wanted to explore how LLMs could be made more reliable, transparent, and context-aware by grounding responses in real knowledge instead of raw model intuition.",
+      solution: "MindScribe uses a Retrieval-Augmented Generation (RAG) pipeline where user queries are first matched against a curated knowledge base of therapeutic techniques using FAISS. Relevant context is then passed to the LLM to generate grounded responses. I implemented conversational memory for coherence across sessions and real-time streaming responses to improve perceived latency and user experience. The frontend was designed with React and Tailwind CSS to feel calm, responsive, and accessible, while the backend was built with FastAPI and LangChain for orchestration.",
+      technologies: "React, TypeScript, Tailwind CSS, FastAPI, LangChain, FAISS, Google Gemini, Supabase."
+    },
+    imageUrl: "/mindscribe.png",
+    liveUrl: "https://synapse-mindscribe.netlify.app/",
+    githubUrl: "https://github.com/EmperorsReign05/MindScribe"
   },
+
   {
     title: "Task Companion",
     shortDescription: "A productivity app that syncs tasks with Google Calendar.",
