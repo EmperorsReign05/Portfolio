@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "PolicyGPT",
+    title: "PolicyLLM",
     shortDescription: "An AI-powered system that uses RAG to analyze complex documents like insurance policies. It answers natural language queries by providing structured, auditable decisions with justifications that directly cite the specific source clauses.",
     tags: ["Python", "LangChain", "FAISS", "Gemini API"],
     status: "in-progress",
@@ -18,7 +18,7 @@ const projects = [
       technologies: "Python, LangChain, Gemini, Sentence-Transformers, FAISS Vector Store, PyMuPDF"
     },
     imageUrl: null,
-    liveUrl: null, 
+    liveUrl: null,
     githubUrl: null
   },
   {
@@ -31,7 +31,7 @@ const projects = [
       solution: "I developed a full-stack application where the front-end (built with React and Vite) sends a user's prompt to a Node.js/Express backend. This backend then securely calls the Groq API with LLaMA 3 to generate and return the opposing legal viewpoints.",
       technologies: "Vite, React, Node.js, Express.js, Groq API (LLaMA 3), Tailwind CSS."
     },
-    imageUrl: "/jolly-llm.jpeg", 
+    imageUrl: "/jolly-llm.jpeg",
     liveUrl: "https://jolly-llm-pixel.netlify.app",
     githubUrl: "https://github.com/EmperorsReign05/jolly-llm"
   },
@@ -134,7 +134,7 @@ export default function Projects() {
               className="bg-card border rounded-lg p-6 md:p-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto relative text-left font-sans" // Using font-sans for readability
               onClick={(e) => e.stopPropagation()}
             >
-             
+
               <div className="mb-6">
                 <h2 className="text-2xl md:text-3xl font-bold">{selectedProject.title}</h2>
               </div>
@@ -147,11 +147,11 @@ export default function Projects() {
                   <Button variant="secondary" asChild><a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">GitHub Repo</a></Button>
                 )}
               </div>
-              
+
               <div className="mb-6">
                 {selectedProject.imageUrl && (
-  <Image src={selectedProject.imageUrl} alt={`${selectedProject.title} screenshot`} width={1280} height={720} className="rounded-lg border" />
-)}
+                  <Image src={selectedProject.imageUrl} alt={`${selectedProject.title} screenshot`} width={1280} height={720} className="rounded-lg border" />
+                )}
               </div>
 
               <div className="space-y-6">
@@ -168,7 +168,7 @@ export default function Projects() {
                   <p className="text-muted-foreground leading-relaxed">{selectedProject.caseStudy.technologies}</p>
                 </div>
               </div>
-              
+
               <Button
                 variant="ghost"
                 size="icon"
