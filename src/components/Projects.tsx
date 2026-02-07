@@ -87,12 +87,12 @@ const projects = [
       solution: "MindScribe uses a Retrieval-Augmented Generation (RAG) pipeline where user queries are first matched against a curated knowledge base of therapeutic techniques using FAISS. Relevant context is then passed to the LLM to generate grounded responses. I implemented conversational memory for coherence across sessions and real-time streaming responses to improve perceived latency and user experience. The frontend was designed with React and Tailwind CSS to feel calm, responsive, and accessible, while the backend was built with FastAPI and LangChain for orchestration.",
       technologies: "React, TypeScript, Tailwind CSS, FastAPI, LangChain, FAISS, Google Gemini, Supabase."
     },
-    imageUrl: "/mindscribe.png",
-    liveUrl: "https://synapse-mindscribe.netlify.app/",
+    imageUrl: "/mindscribee.png",
+    liveUrl: "https://synapse-mindscribe.netlify.app",
     githubUrl: "https://github.com/EmperorsReign05/MindScribe"
   },
 
-  {
+  /*{
     title: "Task Companion",
     shortDescription: "A productivity app that syncs tasks with Google Calendar.",
     tags: ["React", "Firebase", "Google Calendar API", "Flask"],
@@ -105,7 +105,7 @@ const projects = [
     imageUrl: "/task-companion.png",
     liveUrl: "https://task-companion.netlify.app/",
     githubUrl: "https://github.com/EmperorsReign05/Task-Companion"
-  }
+  }*/
 ];
 
 type Project = typeof projects[0];

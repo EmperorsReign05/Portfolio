@@ -5,6 +5,7 @@ import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import RetroBackground from '@/components/RetroBackground';
 import Loader from "@/components/Loader";
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 
@@ -42,8 +43,15 @@ export default function RootLayout({
             <Loader key="loader" />
           ) : (
             <>
-              <RetroBackground />
-              {children}
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <RetroBackground />
+                {children}
+              </ThemeProvider>
             </>
           )}
         </AnimatePresence>
