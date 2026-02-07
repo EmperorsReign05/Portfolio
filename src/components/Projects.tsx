@@ -8,6 +8,20 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "FeedbackPulse",
+    shortDescription: "A lightweight, scalable, and developer-friendly feedback system embeddable into any web app with minimal setup.",
+    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Gemini AI"],
+    status: "completed",
+    caseStudy: {
+      challenge: "Developers and small teams often struggle to collect structured user feedback across multiple websites. Most feedback is scattered across emails, forms, or chat messages, which makes it difficult to prioritize issues, analyze sentiment, and maintain consistency across projects. Existing tools were either too heavy, expensive, or difficult to integrate quickly. The goal was to create a lightweight yet scalable developer-friendly feedback system that could be embedded into any web app with minimal setup.",
+      solution: "Instead of building a simple feedback form, I approached FeedbackPulse as a plug-and-play developer tool (SaaS-style). I designed a reusable embeddable widget using Next.js + TypeScript that developers could integrate into their websites through a small script and a unique projectKey. On the backend, I built a Node.js + Express API layer with PostgreSQL and Prisma to manage projects, feedback entries, and user accounts with strong relational integrity. I implemented JWT authentication and Google OAuth to enable secure multi-project access, along with domain allow-listing to prevent misuse of embedded widgets. To handle scale and usability, I added server-side pagination, webhook support for external integrations, and AI-powered sentiment tagging using Gemini AI to automatically categorize feedback into positive, neutral, or negative. For deployment, I hosted the frontend on Netlify and backend services on Render, configuring environment variables, CORS policies, and production-level API routing. The system was tested across multiple domains to ensure cross-site embedding reliability and consistent performance.",
+      technologies: "Next.js, React, TypeScript, Node.js, Express, PostgreSQL, Prisma ORM, JWT Authentication, Google OAuth, Gemini AI, Netlify, Render, Webhooks, Domain Allow-listing."
+    },
+    imageUrl: "/feedback-pulse.png",
+    liveUrl: "https://feedbackpulse-me.netlify.app",
+    githubUrl: "https://github.com/EmperorsReign05/FeedbackPulse"
+  },
+  {
     title: "CabMate",
     shortDescription: "A full-stack ride-sharing platform designed to streamline cab coordination with structured matching and real deployments.",
     tags: ["React", "FastAPI", "MongoDB", "Docker", "AWS EC2", "Nginx"],
@@ -111,7 +125,7 @@ export default function Projects() {
         >
           Projects
         </motion.h2>
-        <div className="grid md:grid-cols-2 gap-6 text-left">
+        <div className="grid md:grid-cols-2 gap-8 text-left">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -119,29 +133,53 @@ export default function Projects() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="bg-card p-6 rounded-lg border flex flex-col relative transition-all hover:shadow-retro"
+              className="group bg-card rounded-xl border-4 border-black box-border overflow-hidden flex flex-col relative transition-all hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               onClick={() => setSelectedProject(project)}
             >
-              {project.status === 'in-progress' && (
-                <div className="absolute top-3 right-3 bg-yellow-400/20 text-yellow-500 text-xs font-bold px-2 py-1 rounded-full">
-                  In Progress
-                </div>
-              )}
-
-              <h3 className="text-xl font-semibold mb-2 pr-24" style={{ fontFamily: "var(--font-press-start-2p)" }}>{project.title}</h3>
-              <p className="text-muted-foreground mb-4 flex-grow">
-                {project.shortDescription}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map(tag => (
-                  <span key={tag} className="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              <div className="relative h-48 w-full border-b-4 border-black bg-muted/50 overflow-hidden">
+                {project.imageUrl ? (
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-secondary/20">
+                    <span className="text-4xl opacity-20">👾</span>
+                  </div>
+                )}
+                {project.status === 'in-progress' && (
+                  <div className="absolute top-3 right-3 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    IN PROGRESS
+                  </div>
+                )}
               </div>
-              <Button variant="outline" className="mt-auto bg-primary text-primary-foreground">
-                Read Case Study
-              </Button>
+
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold mb-3 leading-tight" style={{ fontFamily: "var(--font-press-start-2p)" }}>
+                  {project.title}
+                </h3>
+
+                <p className="text-muted-foreground text-sm mb-6 flex-grow line-clamp-3">
+                  {project.shortDescription}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.slice(0, 4).map(tag => (
+                    <span key={tag} className="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded border-2 border-transparent group-hover:border-primary/20 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                  {project.tags.length > 4 && (
+                    <span className="text-[10px] text-muted-foreground py-1 px-1">+{project.tags.length - 4}</span>
+                  )}
+                </div>
+
+                <Button className="w-full border-2 border-black bg-primary text-primary-foreground font-bold hover:translate-y-[2px] hover:shadow-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+                  Load Cartridge
+                </Button>
+              </div>
             </motion.div>
           ))}
         </div>
