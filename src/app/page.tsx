@@ -1,4 +1,3 @@
-
 "use client";
 
 import Navbar from "@/components/NavBar";
@@ -8,6 +7,7 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
+import TechStack from "@/components/TechStack";
 
 export default function Home() {
   return (
@@ -15,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <TechStack />
         <Skills />
         <Projects />
         <BentoShowcase />
