@@ -48,7 +48,7 @@ export default function BentoShowcase() {
           <h3 className="text-lg font-semibold mb-4" style={{ fontFamily: "var(--font-press-start-2p)" }}>
             Connect
           </h3>
-          <Button asChild variant="outline" size="sm" className="border-2 border-black bg-primary text-primary-foreground hover:translate-y-[2px] hover:shadow-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+          <Button asChild variant="outline" size="sm" className="border-2 border-black dark:border-white bg-transparent text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:translate-y-[2px] hover:shadow-none transition-all">
             <Link href="#contact">
               Let&apos;s Talk <ArrowUpRight className="ml-2 size-4" />
             </Link>
