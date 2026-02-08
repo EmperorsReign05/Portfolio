@@ -31,8 +31,8 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-12 px-4 md:px-8 bg-transparent">
-      <div className="max-w-5xl mx-auto border-t-4 border-black dark:border-white pt-10">
+    <section id="skills" className="py-12 px-4 md:px-8 bg-transparent relative z-20">
+      <div className="max-w-5xl mx-auto border-t-4 border-black dark:border-white pt-10 px-6 pb-6 bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-xl shadow-lg">
 
         <motion.div
           initial={{ opacity: 0 }}

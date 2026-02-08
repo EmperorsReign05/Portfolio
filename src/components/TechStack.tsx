@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-
 import {
     Code, Server, Database, Layers, Box, Terminal,
     Cpu, Globe, Layout, GitFork, Zap, Command,
-    FileJson // Kept for safety if used elsewhere, but not needed for Python
+    FileJson
 } from "lucide-react";
 
 // Custom Snake Icon for Python
@@ -47,11 +47,7 @@ export default function TechStack() {
         { name: "Node.js", icon: Server },
         { name: "Python", icon: SnakeIcon },
         { name: "PostgreSQL", icon: Database },
-        //{ name: "Framer", icon: Zap },
         { name: "Docker", icon: Box },
-        //{ name: "Prisma", icon: Layers },
-        //{ name: "Figma", icon: Command },
-        //{ name: "Git", icon: GitFork },
         { name: "System Design", icon: Cpu },
     ];
 
@@ -59,7 +55,7 @@ export default function TechStack() {
     const height = useTransform(smoothProgress, [0, 0.4], ["0%", "100%"]);
 
     return (
-        <section ref={containerRef} className="relative flex flex-col items-center justify-start py-20 px-4 overflow-hidden">
+        <section ref={containerRef} className="relative flex flex-col items-center justify-start py-20 px-4 overflow-hidden z-10">
 
             {/* Header */}
             <div className="relative z-10 text-center mb-16 md:mb-24">
@@ -72,10 +68,11 @@ export default function TechStack() {
             </div>
 
             {/* Main Layout Container */}
-            <div className="relative w-full max-w-5xl">
+            <div className="relative w-full max-w-5xl flex flex-col items-center">
 
-                {/* Central "Vine" / "Pipe" Stem */}
-                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-8 w-8 md:w-10 bg-[#356d25] border-x-4 border-black overflow-hidden z-0">
+                {/* Visual Pipe Background Layer */}
+                {/* Extended to bottom-0 to ensure it always sits behind the Base Block */}
+                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-8 md:w-10 bg-[#356d25] border-x-4 border-black overflow-hidden z-0">
                     {/* Inner highlight for "pipe" look */}
                     <div className="absolute left-1 top-0 bottom-0 w-1 bg-[#6abe30]/50" />
                     <div className="absolute left-3 top-0 bottom-0 w-2 bg-[#99e550]/30" />
@@ -85,7 +82,6 @@ export default function TechStack() {
                         style={{ height }}
                         className="w-full bg-[#5ac54f] relative border-b-4 border-black"
                     >
-                        {/* Vine segments */}
                         <div className="w-full h-full bg-[repeating-linear-gradient(0deg,transparent,transparent_19px,#004400_20px)] opacity-20" />
                     </motion.div>
                 </div>
@@ -95,8 +91,8 @@ export default function TechStack() {
                     <div className="w-full h-full bg-gradient-to-r from-[#99e550] to-[#356d25]" />
                 </div>
 
-                {/* Grid Layout - With extra bottom padding for the base */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-16 pl-20 md:pl-0 w-full relative z-10 pb-20">
+                {/* Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-16 pl-20 md:pl-0 w-full relative z-10 pb-4">
                     {techStack.map((tech, i) => (
                         <TechBlock
                             key={tech.name}
@@ -108,12 +104,14 @@ export default function TechStack() {
                     ))}
                 </div>
 
-                {/* Base Block - Positioned absolutely at the bottom of the container */}
-                <div className="absolute bottom-0 left-2 md:left-1/2 md:-translate-x-1/2 w-16 md:w-20 h-16 md:h-20 bg-[#b86f50] border-4 border-black z-20 grid grid-cols-2 place-content-center gap-1 p-1">
-                    <div className="size-1 bg-black/20 rounded-full" />
-                    <div className="size-1 bg-black/20 rounded-full" />
-                    <div className="size-1 bg-black/20 rounded-full" />
-                    <div className="size-1 bg-black/20 rounded-full" />
+                {/* Base Block - Caps the pipe at the bottom */}
+                <div className="relative z-20 w-full max-w-5xl h-16 md:h-20 mt-4 pointer-events-none">
+                    <div className="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-16 md:w-20 h-16 md:h-20 bg-[#b86f50] border-4 border-black grid grid-cols-2 place-content-center gap-1 p-1">
+                        <div className="size-1 bg-black/20 rounded-full" />
+                        <div className="size-1 bg-black/20 rounded-full" />
+                        <div className="size-1 bg-black/20 rounded-full" />
+                        <div className="size-1 bg-black/20 rounded-full" />
+                    </div>
                 </div>
 
             </div>
