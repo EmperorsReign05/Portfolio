@@ -4,8 +4,32 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import {
     Code, Server, Database, Layers, Box, Terminal,
-    Cpu, Globe, Layout, GitFork, Zap, Command
+    Cpu, Globe, Layout, GitFork, Zap, Command,
+    FileJson // Kept for safety if used elsewhere, but not needed for Python
 } from "lucide-react";
+
+// Custom Snake Icon for Python
+const SnakeIcon = (props: any) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M15 6v2a5 5 0 0 1-5 5H6a5 5 0 0 0-5 5v2" />
+        <path d="M21 6h-2a4 4 0 0 1-4 4V6a4 4 0 0 1 4-4h2" />
+        <path d="M13 14v-2a4 4 0 0 1 4-4h2" />
+        <circle cx="21" cy="6" r="1" fill="currentColor" />
+        <circle cx="3" cy="18" r="1" fill="currentColor" />
+    </svg>
+);
+
 
 export default function TechStack() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -21,13 +45,13 @@ export default function TechStack() {
         { name: "Next.js", icon: Globe },
         { name: "TypeScript", icon: Terminal },
         { name: "Node.js", icon: Server },
+        { name: "Python", icon: SnakeIcon },
         { name: "PostgreSQL", icon: Database },
-        { name: "Tailwind", icon: Layout },
-        { name: "Framer", icon: Zap },
+        //{ name: "Framer", icon: Zap },
         { name: "Docker", icon: Box },
-        { name: "Prisma", icon: Layers },
-        { name: "Figma", icon: Command },
-        { name: "Git", icon: GitFork },
+        //{ name: "Prisma", icon: Layers },
+        //{ name: "Figma", icon: Command },
+        //{ name: "Git", icon: GitFork },
         { name: "System Design", icon: Cpu },
     ];
 
@@ -35,7 +59,7 @@ export default function TechStack() {
     const height = useTransform(smoothProgress, [0, 0.4], ["0%", "100%"]);
 
     return (
-        <section ref={containerRef} className="relative min-h-[150vh] flex flex-col items-center justify-start py-20 px-4 overflow-hidden">
+        <section ref={containerRef} className="relative flex flex-col items-center justify-start py-20 px-4 overflow-hidden">
 
             {/* Header */}
             <div className="relative z-10 text-center mb-16 md:mb-24">
@@ -51,7 +75,7 @@ export default function TechStack() {
             <div className="relative w-full max-w-5xl">
 
                 {/* Central "Vine" / "Pipe" Stem */}
-                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-8 md:w-10 bg-[#356d25] border-x-4 border-black h-full overflow-hidden">
+                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-8 w-8 md:w-10 bg-[#356d25] border-x-4 border-black overflow-hidden z-0">
                     {/* Inner highlight for "pipe" look */}
                     <div className="absolute left-1 top-0 bottom-0 w-1 bg-[#6abe30]/50" />
                     <div className="absolute left-3 top-0 bottom-0 w-2 bg-[#99e550]/30" />
@@ -66,13 +90,13 @@ export default function TechStack() {
                     </motion.div>
                 </div>
 
-                {/* Top Pipe Cap (Decoration) */}
+                {/* Top Pipe Cap */}
                 <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 -top-4 w-12 md:w-16 h-8 bg-[#5ac54f] border-4 border-black z-10 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
                     <div className="w-full h-full bg-gradient-to-r from-[#99e550] to-[#356d25]" />
                 </div>
 
-                {/* Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-16 pl-20 md:pl-0 w-full relative z-10">
+                {/* Grid Layout - With extra bottom padding for the base */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-16 pl-20 md:pl-0 w-full relative z-10 pb-20">
                     {techStack.map((tech, i) => (
                         <TechBlock
                             key={tech.name}
@@ -84,8 +108,8 @@ export default function TechStack() {
                     ))}
                 </div>
 
-                {/* Base Block */}
-                <div className="absolute bottom-0 left-6 md:left-1/2 md:-translate-x-1/2 translate-y-full w-20 h-20 bg-[#b86f50] border-4 border-black z-10 grid grid-cols-2 place-content-center gap-1 p-1">
+                {/* Base Block - Positioned absolutely at the bottom of the container */}
+                <div className="absolute bottom-0 left-2 md:left-1/2 md:-translate-x-1/2 w-16 md:w-20 h-16 md:h-20 bg-[#b86f50] border-4 border-black z-20 grid grid-cols-2 place-content-center gap-1 p-1">
                     <div className="size-1 bg-black/20 rounded-full" />
                     <div className="size-1 bg-black/20 rounded-full" />
                     <div className="size-1 bg-black/20 rounded-full" />
@@ -107,12 +131,6 @@ const TechBlock = ({ item, index, total, progress }: { item: any, index: number,
 
     const scale = useTransform(progress, [start, end], [0, 1]);
     const y = useTransform(progress, [start, end], [50, 0]);
-
-    // Random "Question Block" Colors? No, stick to brick/block style.
-    // Let's go with "Item Box" style (White/Metal) or "Brick" style (Red/Brown)?
-    // User asked for Mario style.
-    // Let's use the iconic "Question Block" yellow for the icon, and "Brick" for the text panel?
-    // Or clean "Cloud" white panels.
 
     return (
         <motion.div
@@ -165,8 +183,6 @@ const TechBlock = ({ item, index, total, progress }: { item: any, index: number,
                         {item.name}
                     </span>
                 </div>
-
-                {/* Floating Coin Effect (Optional: Add via CSS/Keyframes later if wanted) */}
 
             </div>
 
