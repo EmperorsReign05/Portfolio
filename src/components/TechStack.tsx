@@ -55,14 +55,14 @@ export default function TechStack() {
     const height = useTransform(smoothProgress, [0, 0.4], ["0%", "100%"]);
 
     return (
-        <section ref={containerRef} className="relative flex flex-col items-center justify-start py-20 px-4 overflow-hidden z-10">
+        <section ref={containerRef} className="relative flex flex-col items-center justify-start py-12 md:py-20 px-4 overflow-hidden z-10">
 
             {/* Header */}
-            <div className="relative z-10 text-center mb-10 md:mb-24">
-                <h2 className="text-2xl md:text-5xl font-black mb-4 text-[#e0e0e0] drop-shadow-[4px_4px_0px_#000]" style={{ fontFamily: "var(--font-press-start-2p)" }}>
+            <div className="relative z-10 text-center mb-8 md:mb-24">
+                <h2 className="text-xl md:text-5xl font-black mb-3 md:mb-4 text-[#e0e0e0] drop-shadow-[2px_2px_0px_#000] md:drop-shadow-[4px_4px_0px_#000]" style={{ fontFamily: "var(--font-press-start-2p)" }}>
                     TECH WORLD
                 </h2>
-                <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-[#d32f2f] border-2 md:border-4 border-black text-white text-xs md:text-base font-bold font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] transform -rotate-1">
+                <div className="inline-block px-2 py-1 md:px-4 md:py-2 bg-[#d32f2f] border-2 md:border-4 border-black text-white text-[10px] md:text-base font-bold font-mono shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] transform -rotate-1">
                     LEVEL 1-1
                 </div>
             </div>
@@ -71,7 +71,6 @@ export default function TechStack() {
             <div className="relative w-full max-w-5xl flex flex-col items-center">
 
                 {/* Visual Pipe Background Layer */}
-                {/* Extended to bottom-0 to ensure it always sits behind the Base Block */}
                 <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-5 md:w-10 bg-[#356d25] border-x-2 md:border-x-4 border-black overflow-hidden z-0">
                     {/* Inner highlight for "pipe" look */}
                     <div className="absolute left-0.5 md:left-1 top-0 bottom-0 w-0.5 md:w-1 bg-[#6abe30]/50" />
@@ -92,7 +91,7 @@ export default function TechStack() {
                 </div>
 
                 {/* Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 md:gap-y-16 pl-14 md:pl-0 w-full relative z-10 pb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-y-16 pl-12 md:pl-0 w-full relative z-10 pb-4">
                     {techStack.map((tech, i) => (
                         <TechBlock
                             key={tech.name}
@@ -139,10 +138,10 @@ const TechBlock = ({ item, index, total, progress }: { item: any, index: number,
                     ? "md:justify-end md:pr-12" // Desktop Left Column
                     : "md:justify-start md:pl-12" // Desktop Right Column
                 }
-                justify-start pl-4 // Mobile Default
+                justify-start pl-2 // Mobile Default
             `}
         >
-            {/* Stem Branch Connector */}
+            {/* Stem Branch Connector - Desktop */}
             <div className={`
                 absolute top-1/2 -translate-y-1/2 h-4 bg-[#5ac54f] border-y-4 border-black
                 hidden md:block w-12 z-0
@@ -150,7 +149,7 @@ const TechBlock = ({ item, index, total, progress }: { item: any, index: number,
             `} />
 
             {/* Mobile Branch */}
-            <div className="absolute top-1/2 -translate-y-1/2 w-5 h-2.5 bg-[#5ac54f] border-y-2 border-r-2 border-black rounded-r-sm -left-4 md:hidden z-0" />
+            <div className="absolute top-1/2 -translate-y-1/2 w-4 h-2 bg-[#5ac54f] border-y-2 border-r-2 border-black rounded-r-sm -left-3 md:hidden z-0" />
 
             {/* The Block */}
             <div className={`
@@ -163,19 +162,19 @@ const TechBlock = ({ item, index, total, progress }: { item: any, index: number,
             `}>
 
                 {/* Corner Bolts */}
-                <div className="absolute top-1 left-1 size-1 bg-[#b55000]" />
-                <div className="absolute top-1 right-1 size-1 bg-[#b55000]" />
-                <div className="absolute bottom-1 left-1 size-1 bg-[#b55000]" />
-                <div className="absolute bottom-1 right-1 size-1 bg-[#b55000]" />
+                <div className="absolute top-0.5 left-0.5 md:top-1 md:left-1 size-0.5 md:size-1 bg-[#b55000]" />
+                <div className="absolute top-0.5 right-0.5 md:top-1 md:right-1 size-0.5 md:size-1 bg-[#b55000]" />
+                <div className="absolute bottom-0.5 left-0.5 md:bottom-1 md:left-1 size-0.5 md:size-1 bg-[#b55000]" />
+                <div className="absolute bottom-0.5 right-0.5 md:bottom-1 md:right-1 size-0.5 md:size-1 bg-[#b55000]" />
 
                 {/* Icon Container */}
-                <div className="shrink-0 p-1.5 md:p-2 bg-white border-2 border-black rounded shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">
+                <div className="shrink-0 p-1 md:p-2 bg-white border-2 border-black rounded shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">
                     <item.icon className="size-4 md:size-6 text-black" strokeWidth={2.5} />
                 </div>
 
                 <div className="flex flex-col min-w-0">
                     <span
-                        className="font-black text-black text-[10px] md:text-base truncate"
+                        className="font-black text-black text-[9px] md:text-base truncate"
                         style={{ fontFamily: "var(--font-press-start-2p)", letterSpacing: "-1px" }}
                     >
                         {item.name}
