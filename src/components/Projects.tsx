@@ -35,20 +35,7 @@ const projects = [
     liveUrl: "https://cabmate.pages.dev",
     githubUrl: "https://github.com/EmperorsReign05/CabMate"
   },
-  {
-    title: "PolicyLLM",
-    shortDescription: "An AI-powered system that uses RAG to analyze complex documents like insurance policies. It answers natural language queries by providing structured, auditable decisions with justifications that directly cite the specific source clauses.",
-    tags: ["Python", "LangChain", "FAISS", "Gemini API"],
-    status: "in-progress",
-    caseStudy: {
-      challenge: "To create an intelligent system that can instantly and accurately answer complex, natural language questions about dense, unstructured insurance policy documents. The goal was to eliminate slow manual review, ensure decisions are auditable, and provide justifications grounded in the source text.",
-      solution: "Engineered an AI-powered system using a RAG architecture. The solution first ingests and indexes multiple policy documents into a searchable vector knowledge base. When a user asks a question, the system retrieves the most relevant clauses using semantic search and feeds them to a LLM, which then synthesizes an evidence-based decision and generates a structured JSON response with direct citations.",
-      technologies: "Python, LangChain, Gemini, Sentence-Transformers, FAISS Vector Store, PyMuPDF"
-    },
-    imageUrl: null,
-    liveUrl: null,
-    githubUrl: "https://github.com/EmperorsReign05/PolicyLLM"
-  },
+
   /*{
     title: "Jolly LLM",
     shortDescription: "A full-stack app to generate dual-sided legal arguments from AI models.",
@@ -91,7 +78,20 @@ const projects = [
     liveUrl: "https://synapse-mindscribe.netlify.app",
     githubUrl: "https://github.com/EmperorsReign05/MindScribe"
   },
-
+  {
+    title: "PolicyLLM",
+    shortDescription: "An AI-powered system that uses RAG to analyze complex documents like insurance policies. It answers natural language queries by providing structured, auditable decisions with justifications that directly cite the specific source clauses.",
+    tags: ["Python", "LangChain", "FAISS", "Gemini API"],
+    status: "in-progress",
+    caseStudy: {
+      challenge: "To create an intelligent system that can instantly and accurately answer complex, natural language questions about dense, unstructured insurance policy documents. The goal was to eliminate slow manual review, ensure decisions are auditable, and provide justifications grounded in the source text.",
+      solution: "Engineered an AI-powered system using a RAG architecture. The solution first ingests and indexes multiple policy documents into a searchable vector knowledge base. When a user asks a question, the system retrieves the most relevant clauses using semantic search and feeds them to a LLM, which then synthesizes an evidence-based decision and generates a structured JSON response with direct citations.",
+      technologies: "Python, LangChain, Gemini, Sentence-Transformers, FAISS Vector Store, PyMuPDF"
+    },
+    imageUrl: null,
+    liveUrl: null,
+    githubUrl: "https://github.com/EmperorsReign05/PolicyLLM"
+  },
   /*{
     title: "Task Companion",
     shortDescription: "A productivity app that syncs tasks with Google Calendar.",
