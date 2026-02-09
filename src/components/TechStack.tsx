@@ -58,11 +58,11 @@ export default function TechStack() {
         <section ref={containerRef} className="relative flex flex-col items-center justify-start py-20 px-4 overflow-hidden z-10">
 
             {/* Header */}
-            <div className="relative z-10 text-center mb-16 md:mb-24">
-                <h2 className="text-3xl md:text-5xl font-black mb-4 text-[#e0e0e0] drop-shadow-[4px_4px_0px_#000]" style={{ fontFamily: "var(--font-press-start-2p)" }}>
+            <div className="relative z-10 text-center mb-10 md:mb-24">
+                <h2 className="text-2xl md:text-5xl font-black mb-4 text-[#e0e0e0] drop-shadow-[4px_4px_0px_#000]" style={{ fontFamily: "var(--font-press-start-2p)" }}>
                     TECH WORLD
                 </h2>
-                <div className="inline-block px-4 py-2 bg-[#d32f2f] border-4 border-black text-white font-bold font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] transform -rotate-1">
+                <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-[#d32f2f] border-2 md:border-4 border-black text-white text-xs md:text-base font-bold font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] transform -rotate-1">
                     LEVEL 1-1
                 </div>
             </div>
@@ -72,27 +72,27 @@ export default function TechStack() {
 
                 {/* Visual Pipe Background Layer */}
                 {/* Extended to bottom-0 to ensure it always sits behind the Base Block */}
-                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-8 md:w-10 bg-[#356d25] border-x-4 border-black overflow-hidden z-0">
+                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-5 md:w-10 bg-[#356d25] border-x-2 md:border-x-4 border-black overflow-hidden z-0">
                     {/* Inner highlight for "pipe" look */}
-                    <div className="absolute left-1 top-0 bottom-0 w-1 bg-[#6abe30]/50" />
-                    <div className="absolute left-3 top-0 bottom-0 w-2 bg-[#99e550]/30" />
+                    <div className="absolute left-0.5 md:left-1 top-0 bottom-0 w-0.5 md:w-1 bg-[#6abe30]/50" />
+                    <div className="absolute left-1.5 md:left-3 top-0 bottom-0 w-1 md:w-2 bg-[#99e550]/30" />
 
                     {/* Growing green stem */}
                     <motion.div
                         style={{ height }}
-                        className="w-full bg-[#5ac54f] relative border-b-4 border-black"
+                        className="w-full bg-[#5ac54f] relative border-b-2 md:border-b-4 border-black"
                     >
                         <div className="w-full h-full bg-[repeating-linear-gradient(0deg,transparent,transparent_19px,#004400_20px)] opacity-20" />
                     </motion.div>
                 </div>
 
                 {/* Top Pipe Cap */}
-                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 -top-4 w-12 md:w-16 h-8 bg-[#5ac54f] border-4 border-black z-10 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 -top-2 md:-top-4 w-8 md:w-16 h-5 md:h-8 bg-[#5ac54f] border-2 md:border-4 border-black z-10 shadow-[2px_2px_0px_rgba(0,0,0,0.3)] md:shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
                     <div className="w-full h-full bg-gradient-to-r from-[#99e550] to-[#356d25]" />
                 </div>
 
                 {/* Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-16 pl-20 md:pl-0 w-full relative z-10 pb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 md:gap-y-16 pl-14 md:pl-0 w-full relative z-10 pb-4">
                     {techStack.map((tech, i) => (
                         <TechBlock
                             key={tech.name}
@@ -105,12 +105,12 @@ export default function TechStack() {
                 </div>
 
                 {/* Base Block - Caps the pipe at the bottom */}
-                <div className="relative z-20 w-full max-w-5xl h-16 md:h-20 mt-4 pointer-events-none">
-                    <div className="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-16 md:w-20 h-16 md:h-20 bg-[#b86f50] border-4 border-black grid grid-cols-2 place-content-center gap-1 p-1">
-                        <div className="size-1 bg-black/20 rounded-full" />
-                        <div className="size-1 bg-black/20 rounded-full" />
-                        <div className="size-1 bg-black/20 rounded-full" />
-                        <div className="size-1 bg-black/20 rounded-full" />
+                <div className="relative z-20 w-full max-w-5xl h-10 md:h-20 mt-2 md:mt-4 pointer-events-none">
+                    <div className="absolute left-1 md:left-1/2 md:-translate-x-1/2 w-10 md:w-20 h-10 md:h-20 bg-[#b86f50] border-2 md:border-4 border-black grid grid-cols-2 place-content-center gap-0.5 md:gap-1 p-0.5 md:p-1">
+                        <div className="size-0.5 md:size-1 bg-black/20 rounded-full" />
+                        <div className="size-0.5 md:size-1 bg-black/20 rounded-full" />
+                        <div className="size-0.5 md:size-1 bg-black/20 rounded-full" />
+                        <div className="size-0.5 md:size-1 bg-black/20 rounded-full" />
                     </div>
                 </div>
 
@@ -150,14 +150,14 @@ const TechBlock = ({ item, index, total, progress }: { item: any, index: number,
             `} />
 
             {/* Mobile Branch */}
-            <div className="absolute top-1/2 -translate-y-1/2 w-8 h-4 bg-[#5ac54f] border-y-4 border-r-4 border-black rounded-r-md -left-6 md:hidden z-0" />
+            <div className="absolute top-1/2 -translate-y-1/2 w-5 h-2.5 bg-[#5ac54f] border-y-2 border-r-2 border-black rounded-r-sm -left-4 md:hidden z-0" />
 
             {/* The Block */}
             <div className={`
-                relative flex items-center gap-4 p-3 w-full md:max-w-xs z-10
+                relative flex items-center gap-2 md:gap-4 p-2 md:p-3 w-full md:max-w-xs z-10
                 bg-[#ffcd75]   /* Question block yellow */
-                border-4 border-black
-                shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                border-2 md:border-4 border-black
+                shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
                 hover:-translate-y-1 active:translate-y-0
                 transition-transform cursor-pointer group
             `}>
@@ -169,13 +169,13 @@ const TechBlock = ({ item, index, total, progress }: { item: any, index: number,
                 <div className="absolute bottom-1 right-1 size-1 bg-[#b55000]" />
 
                 {/* Icon Container */}
-                <div className="shrink-0 p-2 bg-white border-2 border-black rounded shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">
-                    <item.icon className="size-6 text-black" strokeWidth={2.5} />
+                <div className="shrink-0 p-1.5 md:p-2 bg-white border-2 border-black rounded shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">
+                    <item.icon className="size-4 md:size-6 text-black" strokeWidth={2.5} />
                 </div>
 
                 <div className="flex flex-col min-w-0">
                     <span
-                        className="font-black text-black text-sm md:text-base truncate"
+                        className="font-black text-black text-[10px] md:text-base truncate"
                         style={{ fontFamily: "var(--font-press-start-2p)", letterSpacing: "-1px" }}
                     >
                         {item.name}
