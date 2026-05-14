@@ -35,7 +35,7 @@ export default function BentoShowcase() {
           <h3 className="text-lg font-semibold" style={{ fontFamily: "var(--font-press-start-2p)" }}>
             Hackathon
           </h3>
-          <div className="mt-2 bg-black text-white text-xs font-bold px-3 py-1 rounded-full">FINALIST</div>
+          <div className="mt-2 bg-black text-white text-xs font-bold px-3 py-1 rounded-full">Runner Up</div>
         </motion.div>
 
         <motion.div

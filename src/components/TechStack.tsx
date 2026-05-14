@@ -5,7 +5,8 @@ import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-
 import {
     Code, Server, Database, Layers, Box, Terminal,
     Cpu, Globe, Layout, GitFork, Zap, Command,
-    FileJson
+    FileJson,
+    Cloud
 } from "lucide-react";
 
 // Custom Snake Icon for Python
@@ -41,14 +42,14 @@ export default function TechStack() {
     const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 100 });
 
     const techStack = [
+        { name: "Python", icon: SnakeIcon },
         { name: "React", icon: Code },
         { name: "Next.js", icon: Globe },
         { name: "TypeScript", icon: Terminal },
         { name: "Node.js", icon: Server },
-        { name: "Python", icon: SnakeIcon },
         { name: "PostgreSQL", icon: Database },
         { name: "Docker", icon: Box },
-        { name: "System Design", icon: Cpu },
+        { name: "Cloud Computing", icon: Cloud },
     ];
 
     // Animation for the "Mario Pipe" stem

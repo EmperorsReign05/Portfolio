@@ -5,34 +5,28 @@ export default function Skills() {
   const categories = [
     {
       title: "Languages",
-      skills: ["Python", "C/C++", "JavaScript", "TypeScript", "SQL", "HTML/CSS"],
+      skills: ["Python", "TypeScript", "JavaScript", "C++", "SQL"],
       color: "decoration-blue-500",
       bgColor: "bg-blue-500/10"
     },
     {
       title: "Frameworks & Libs",
-      skills: ["React", "FastAPI", "Node.js", "Next.js", "Flask", "Express", "LangChain"],
+      skills: ["React", "Next.js", "Node.js", "FastAPI", "LangChain"],
       color: "decoration-purple-500",
       bgColor: "bg-purple-500/10"
     },
     {
       title: "Tools & Cloud",
-      skills: ["Git", "Supabase", "Firebase", "PostgreSQL", "MongoDB", "Docker", "AWS EC2", "VS Code"],
+      skills: ["AWS (Certified)", "Docker", "PostgreSQL", "Supabase", "Git"],
       color: "decoration-orange-500",
       bgColor: "bg-orange-500/10"
     },
     {
       title: "AI & ML",
-      skills: ["RAG", "TensorFlow", "TF-IDF", "FAISS", "Hugging Face", "Scikit-learn"],
+      skills: ["TensorFlow", "Hugging Face", "Scikit-learn", "RAG"],
       color: "decoration-pink-500",
       bgColor: "bg-pink-500/10"
-    },
-    {
-      title: "Domains",
-      skills: ["NLP", "Machine Learning", "Cloud Computing", "Web Development"],
-      color: "decoration-green-500",
-      bgColor: "bg-green-500/10"
-    },
+    }
   ];
 
   return (
@@ -43,7 +37,7 @@ export default function Skills() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-8 text-left"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 text-left"
         >
           {categories.map((category) => (
             <div key={category.title} className="flex flex-col gap-2 md:gap-4">

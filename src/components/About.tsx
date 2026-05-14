@@ -72,6 +72,14 @@ export default function About() {
                   Exploring the intersection of generative AI and modern web frameworks to build smarter tools.
                 </p>
               </div>
+
+              <div>
+                <h3 className="text-xl font-bold mb-2 font-mono text-primary">{'>'} CERTIFICATIONS</h3>
+                <div className="font-mono text-muted-foreground text-sm md:text-base flex items-center gap-2">
+                  {/*<span className="text-orange-500">🏆</span>*/}
+                  <span className="font-bold text-foreground">AWS Certified Cloud Practitioner</span>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
