@@ -65,6 +65,20 @@ const projects = [
     githubUrl: "https://github.com/EmperorsReign05/NewsLens"
   },*/
   {
+    title: "Tempora",
+    shortDescription: "A zero-dependency forensic analysis tool for detecting log tampering and synthetic forgery in GB-scale log files, with MITRE ATT&CK mapping and verifiable chain of custody.",
+    tags: ["Python", "Forensic Analysis", "Shannon Entropy", "SHA-256", "MITRE ATT&CK"],
+    status: "completed",
+    caseStudy: {
+      challenge: "Analyzing GB-scale log files for forensic evidence is computationally expensive and memory-intensive. Existing tools rely on heavy dependencies and lack structured threat mapping, making triage slow and audit trails difficult to verify.",
+      solution: "Engineered a zero-dependency Python tool using generators for O(1) memory processing of large log files. Implemented the Alibi Protocol and Shannon Entropy to detect synthetic forgery, automated threat triage by mapping anomalies to MITRE T1070/T1005 techniques, and integrated SHA-256 hashing with interactive HTML reporting to ensure a verifiable forensic chain of custody.",
+      technologies: "Python (Standard Library), MITRE ATT&CK, Shannon Entropy, SHA-256, Regex, Forensic Analysis."
+    },
+    imageUrl: "/tempora.png",
+    liveUrl: null,
+    githubUrl: "https://github.com/EmperorsReign05/Tempora"
+  },
+  {
     title: "MindScribe",
     shortDescription: "An AI-powered mental wellness companion built using Retrieval-Augmented Generation for grounded, context-aware conversations.",
     tags: ["React", "TypeScript", "FastAPI", "LangChain", "FAISS", "Google Gemini"],
@@ -78,7 +92,7 @@ const projects = [
     liveUrl: "https://synapse-mindscribe.netlify.app",
     githubUrl: "https://github.com/EmperorsReign05/MindScribe"
   },
-  {
+  /*{
     title: "PolicyLLM",
     shortDescription: "An AI-powered system that uses RAG to analyze complex documents like insurance policies. It answers natural language queries by providing structured, auditable decisions with justifications that directly cite the specific source clauses.",
     tags: ["Python", "LangChain", "FAISS", "Gemini API"],
