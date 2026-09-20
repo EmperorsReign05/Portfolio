@@ -79,6 +79,21 @@ const projects = [
     githubUrl: "https://github.com/EmperorsReign05/Tempora"
   },
   {
+    title: "Symbiote",
+    shortDescription: "A privacy-first Android security assistant that detects and blocks phishing, malicious APKs, QR-based threats, and social engineering attacks using on-device Rust heuristics and real-time threat intelligence.",
+    tags: ["Android", "Kotlin", "Rust", "Go", "Next.js", "Cybersecurity", "Threat Intelligence"],
+    status: "completed",
+    caseStudy: {
+      challenge: "Modern financial scams increasingly combine phishing links, malicious APKs, QR codes, and social engineering to trick users into bypassing Android's security controls. Cloud-dependent detection can introduce latency and expose sensitive message content, while static warnings often lead to alert fatigue.",
+      solution: "Engineered a local-first Android security assistant combining Kotlin, Rust, and a Go-based telemetry backend. Symbiote analyzes URLs and device context locally using entropy heuristics and Bloom Filters, applies tiered risk scoring to dynamically control user friction, and immediately intercepts malicious installation and navigation flows. Confirmed threats are anonymously reported to a scalable threat-intelligence backend, where an automated NeonDB and GitHub Actions pipeline continuously rebuilds signed Bloom Filters and distributes them to devices via OTA updates. A Next.js command center visualizes global threat activity in real time through SSE.",
+      technologies: "Kotlin, Android AccessibilityService, NotificationListenerService, Rust, JNI, Bloom Filters, Ed25519, Go, Next.js, NeonDB, Server-Sent Events (SSE), WorkManager, Threat Intelligence APIs."
+    },
+
+    imageUrl: "/symbiote.png",
+    liveUrl: "https://symbiote-dashboard.netlify.app/",
+    githubUrl: "https://github.com/EmperorsReign05/SymbioteApp"
+  },
+  /*{
     title: "MindScribe",
     shortDescription: "An AI-powered mental wellness companion built using Retrieval-Augmented Generation for grounded, context-aware conversations.",
     tags: ["React", "TypeScript", "FastAPI", "LangChain", "FAISS", "Google Gemini"],
@@ -92,7 +107,7 @@ const projects = [
     liveUrl: "https://synapse-mindscribe.netlify.app",
     githubUrl: "https://github.com/EmperorsReign05/MindScribe"
   },
-  /*{
+  {
     title: "PolicyLLM",
     shortDescription: "An AI-powered system that uses RAG to analyze complex documents like insurance policies. It answers natural language queries by providing structured, auditable decisions with justifications that directly cite the specific source clauses.",
     tags: ["Python", "LangChain", "FAISS", "Gemini API"],
