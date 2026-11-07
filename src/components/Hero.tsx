@@ -65,7 +65,7 @@ export default function Hero() {
           </Button>
 
           <Button asChild variant="outline" size="lg" className="border-2 border-black bg-white text-black font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all dark:bg-zinc-900 dark:text-white dark:border-white dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-            <a href="/resume.pdf" download="Mohammad_Alman_Resume.pdf">
+            <a href="/Mohammad-Alman-Farooqui_Intern_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Download className="mr-2 h-4 w-4" />
               Resume
             </a>
