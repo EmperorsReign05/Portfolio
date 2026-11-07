@@ -35,6 +35,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Mohammad Alman</title>
+      </head>
       <body
         className={`${pressStart2P.variable} antialiased`}
       >
